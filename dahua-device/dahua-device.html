@@ -1,0 +1,36 @@
+<script type="text/javascript">
+    RED.nodes.registerType('dahua-device', {
+        category: 'input',
+        color: '#bba5cf',
+        defaults: {
+            name: {value: "Dahua device"},
+            device: {value: "", type: "dahua-device-config", required: true},
+        },
+        inputs: 0,
+        outputs: 1,
+        icon: "dahua.png",
+        label: function () {
+            return this.name || "Dahua";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="dahua-device">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-device"><i class="icon-tag"></i>Dahua device</label>
+        <input type="text" id="node-input-device" placeholder="">
+    </div>
+
+
+</script>
+
+<script type="text/x-red" data-help-name="dahua-device">
+    <p>Provides a node for grabbing Dahua DVR/NVR (digital video recorder) or IP-camera events like
+    <code>VideoMotion</code>, <code>AlarmLocal</code>, <code>VideoLoss</code> and <code>VideoBlind</code>.</p>
+    Supports digest authentication for the last Dahua firmware devices.
+</script>
