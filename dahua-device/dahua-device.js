@@ -31,7 +31,7 @@ module.exports = function (RED) {
 
         dahua.on('alarm', function (code, action, index) {
             node.send({
-                topic: code + '/' + index,
+                topic: code + '/' + index + '/' + action,
                 payload: action,
                 index,
                 code
