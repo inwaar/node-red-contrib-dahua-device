@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "moment": "^2.24.0",
-    "node-dahua-api": "FrankZZ/node-dahua-api"
+    "node-dahua-api": "github:FrankZZ/node-dahua-api"
   },
   "repository": {
     "type": "git",
