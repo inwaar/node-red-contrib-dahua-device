@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-dahua-device",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A Node-RED integration of Dahua network devices (NVR, IP-Cameras)",
   "author": "Igor Starovierov <igor.decler@gmail.com>",
   "license": "MIT",
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "moment": "^2.24.0",
-    "node-dahua-api": "github:FrankZZ/node-dahua-api"
+    "node-dahua-api": "github:FrankZZ/node-dahua-api#feature/reconnect"
   },
   "repository": {
     "type": "git",
