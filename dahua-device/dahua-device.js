@@ -18,15 +18,15 @@ module.exports = function (RED) {
         });
 
         dahua.on('connect', function () {
-            nodeStatus("green", "connected");
+            nodeStatus(node, "green", "connected");
         });
 
         dahua.on('error', function (error) {
-            nodeStatus("red", "error: " + error);
+            nodeStatus(node, "red", "error: " + error);
         });
 
         dahua.on('end', function () {
-            nodeStatus("yellow", "disconnected");
+            nodeStatus(node, "yellow", "disconnected");
         });
 
         dahua.on('alarm', function (code, action, index, metadata) {
@@ -40,7 +40,7 @@ module.exports = function (RED) {
         });
     }
 
-    function nodeStatus(color, text) {
+    function nodeStatus(node, color, text) {
         var options = { weekday: 'short', hour12: false, month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit' };
         var d = new Date();
         var ds = d.toLocaleDateString("en-US", options);
