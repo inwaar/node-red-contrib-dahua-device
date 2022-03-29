@@ -11,7 +11,7 @@ Install
 
 Run the following command in your Node-RED user directory - typically `~/.node-red`
 
-    npm install node-red-contrib-dahua-device
+    npm i github:FrankZZ/node-red-contrib-dahua-device
 
 Usage
 -----
