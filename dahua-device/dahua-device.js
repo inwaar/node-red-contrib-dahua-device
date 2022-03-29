@@ -18,15 +18,15 @@ module.exports = function (RED) {
         });
 
         dahua.on('connect', function () {
-            node.status({fill: "green", shape: "dot", text: "connected"});
+            nodeStatus(node, "green", "connected");
         });
 
         dahua.on('error', function (error) {
-            node.status({fill: "red", shape: "dot", text: "error: " + error});
+            nodeStatus(node, "red", "error: " + error);
         });
 
         dahua.on('end', function () {
-            node.status({fill: "yellow", shape: "dot", text: "disconnected"});
+            nodeStatus(node, "yellow", "disconnected");
         });
 
         dahua.on('alarm', function (code, action, index, metadata) {
@@ -37,7 +37,15 @@ module.exports = function (RED) {
                 index,
                 code
             });
+            nodeStatus(node, "green", "processed " + code + " event");
         });
+    }
+
+    function nodeStatus(node, color, text) {
+        var options = { hour12: false, month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit' };
+        var d = new Date();
+        var ds = d.toLocaleDateString("en-US", options);
+        node.status({fill: color, shape: "dot", text: text + " at " + ds});
     }
 
     RED.nodes.registerType("dahua-device", DahuaDeviceNode);
