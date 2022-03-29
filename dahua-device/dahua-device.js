@@ -37,6 +37,7 @@ module.exports = function (RED) {
                 index,
                 code
             });
+            nodeStatus(node, "green", "processed " + code + " event");
         });
     }
 
