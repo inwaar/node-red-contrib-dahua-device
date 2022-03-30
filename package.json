@@ -17,6 +17,7 @@
     }
   },
   "dependencies": {
+    "moment": "^2.29.1",
     "node-dahua-api": "github:nayrnet/node-dahua-api#master"
   },
   "repository": {
