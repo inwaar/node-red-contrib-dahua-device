@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-dahua-device",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A Node-RED integration of Dahua network devices (NVR, IP-Cameras)",
   "author": "Igor Starovierov <igor.decler@gmail.com>",
   "license": "MIT",
