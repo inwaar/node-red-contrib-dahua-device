@@ -32,7 +32,7 @@ module.exports = function (RED) {
 
         dahua.on('alarm', function (code, action, index, metadata) {
             node.send({
-                topic: code + '/' + action,
+                topic: [code, index, action].join('/'),
                 payload: action,
                 metadata,
                 index,
