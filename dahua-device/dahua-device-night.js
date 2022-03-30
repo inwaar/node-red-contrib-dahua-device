@@ -9,10 +9,10 @@ module.exports = function (RED) {
         node.status({});
         
         if (!device) {
-            nodeStatus(node, "red", "error: no config");
+            nodeStatus(node, 'red', 'error: no config');
         }
 
-        nodeStatus('yellow', 'dot', 'connecting...');
+        nodeStatus(node, 'yellow', 'dot', 'connecting...');
 
         var dahua = new ipcamera.dahua({
             host: device.ipaddress,
