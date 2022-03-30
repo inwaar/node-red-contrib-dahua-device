@@ -1,7 +1,8 @@
 var ipcamera = require('node-dahua-api');
+var nodeStatus = require('./utils').nodeStatus;
 
 module.exports = function (RED) {
-    function DahuaDeviceNode(config) {
+    function DahuaDeviceNightNode(config) {
         RED.nodes.createNode(this, config);
         var node = this;
         var device = RED.nodes.getNode(config.device);
@@ -33,12 +34,5 @@ module.exports = function (RED) {
         nodeStatus(node, 'green', 'ready');
     }
 
-    function nodeStatus(node, color, text) {
-        var options = { hour12: false, month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-        var d = new Date();
-        var ds = d.toLocaleDateString('en-US', options);
-        node.status({fill: color, shape: 'dot', text: text + ' at ' + ds});
-    }
-
-    RED.nodes.registerType('dahua-device-night', DahuaDeviceNode);
+    RED.nodes.registerType('dahua-device-night', DahuaDeviceNightNode);
 };

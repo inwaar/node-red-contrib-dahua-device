@@ -1,4 +1,5 @@
 var ipcamera = require('node-dahua-api');
+var nodeStatus = require('./utils').nodeStatus;
 
 module.exports = function (RED) {
     function DahuaDeviceNode(config) {
@@ -7,7 +8,7 @@ module.exports = function (RED) {
         var device = RED.nodes.getNode(config.device);
 
         node.status({});
-        node.status({fill: "yellow", shape: "dot", text: "connecting..."});
+        node.status({fill: 'yellow', shape: 'dot', text: 'connecting...'});
 
         var dahua = new ipcamera.dahua({
             host: device.ipaddress,
@@ -18,35 +19,28 @@ module.exports = function (RED) {
         });
 
         dahua.on('connect', function (options) {
-            nodeStatus(node, "green", "connected to " + options.host );
+            nodeStatus(node, 'green', 'connected to ' + options.host );
         });
 
         dahua.on('error', function (error) {
-            nodeStatus(node, "red", "error: " + error);
+            nodeStatus(node, 'red', 'error: ' + error);
         });
 
         dahua.on('end', function () {
-            nodeStatus(node, "yellow", "disconnected");
+            nodeStatus(node, 'yellow', 'disconnected');
         });
 
         dahua.on('alarm', function (code, action, index, metadata) {
             node.send({
-                topic: code + '/' + index + '/' + action,
+                topic: code + '/' + action,
                 payload: action,
                 metadata,
                 index,
                 code
             });
-            nodeStatus(node, "green", "processed " + code + " event");
+            nodeStatus(node, 'green', 'processed ' + code + ' event');
         });
     }
 
-    function nodeStatus(node, color, text) {
-        var options = { hour12: false, month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-        var d = new Date();
-        var ds = d.toLocaleDateString("en-US", options);
-        node.status({fill: color, shape: "dot", text: text + " at " + ds});
-    }
-
-    RED.nodes.registerType("dahua-device", DahuaDeviceNode);
+    RED.nodes.registerType('dahua-device', DahuaDeviceNode);
 };
