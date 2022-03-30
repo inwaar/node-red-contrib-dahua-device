@@ -11,15 +11,16 @@
   "node-red": {
     "nodes": {
       "dahua-device": "dahua-device/dahua-device.js",
-      "dahua-device-config": "dahua-device/dahua-device-config.js"
+      "dahua-device-config": "dahua-device/dahua-device-config.js",
+      "dahua-device-night": "dahua-device/dahua-device-night.js",
+      "dahua-device-day": "dahua-device/dahua-device-day.js"
     }
   },
   "dependencies": {
-    "moment": "^2.24.0",
-    "node-dahua-api": "github:FrankZZ/node-dahua-api#v1.1.3"
+    "node-dahua-api": "github:nayrnet/node-dahua-api#master"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FrankZZ/node-red-contrib-dahua-device.git"
+    "url": "git+https://github.com/inwaar/node-red-contrib-dahua-device.git"
   }
 }

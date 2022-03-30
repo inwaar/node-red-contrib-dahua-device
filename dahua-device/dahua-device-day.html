@@ -1,0 +1,35 @@
+<script type="text/javascript">
+    RED.nodes.registerType('dahua-device-day', {
+        category: 'input',
+        color: '#bba5cf',
+        defaults: {
+            name: {value: "Dahua device set day profile"},
+            device: {value: "", type: "dahua-device-config", required: true},
+        },
+        inputs: 1,
+        outputs: 0,
+        icon: "dahua.png",
+        label: function () {
+            return this.name || "Dahua";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="dahua-device-day">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-device"><i class="icon-tag"></i>Dahua device</label>
+        <input type="text" id="node-input-device" placeholder="">
+    </div>
+
+
+</script>
+
+<script type="text/x-red" data-help-name="dahua-device-day">
+    <p>Provides a node to set the current profile of the camera to Day.</p>
+    Supports digest authentication for the last Dahua firmware devices.
+</script>
