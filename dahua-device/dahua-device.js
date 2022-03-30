@@ -17,8 +17,8 @@ module.exports = function (RED) {
             log: false
         });
 
-        dahua.on('connect', function () {
-            nodeStatus(node, "green", "connected to " + dahua.HOST );
+        dahua.on('connect', function (options) {
+            nodeStatus(node, "green", "connected to " + options.host );
         });
 
         dahua.on('error', function (error) {
