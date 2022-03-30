@@ -11,7 +11,9 @@
   "node-red": {
     "nodes": {
       "dahua-device": "dahua-device/dahua-device.js",
-      "dahua-device-config": "dahua-device/dahua-device-config.js"
+      "dahua-device-config": "dahua-device/dahua-device-config.js",
+      "dahua-device-night": "dahua-device/dahua-device-night.js",
+      "dahua-device-day": "dahua-device/dahua-device-day.js"
     }
   },
   "dependencies": {
