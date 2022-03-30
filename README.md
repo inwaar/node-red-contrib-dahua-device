@@ -14,7 +14,7 @@ Install
 
 Run the following command in your Node-RED user directory - typically `~/.node-red`
 
-    `npm i node-red-contrib-dahua-device`
+    npm i node-red-contrib-dahua-device
 
 Usage
 -----
@@ -25,4 +25,4 @@ If you want to trigger day or night profile, drop the Dahua device day / night n
 
 Example
 -------
-![example](https://raw.githubusercontent.com/inwaar/node-red-contrib-dahua-device/master/images/example.png)
+![example](./images/example.png)
