@@ -7,7 +7,12 @@ module.exports = function (RED) {
         var device = RED.nodes.getNode(config.device);
 
         node.status({});
-        node.status({fill: 'yellow', shape: 'dot', text: 'connecting...'});
+        
+        if (!device) {
+            nodeStatus(node, "red", "error: no config");
+        }
+
+        nodeStatus('yellow', 'dot', 'connecting...');
 
         var dahua = new ipcamera.dahua({
             host: device.ipaddress,
@@ -22,8 +27,10 @@ module.exports = function (RED) {
             nodeStatus(node, 'red', 'error: ' + error);
         });
 
-        dahua.nightProfile();
-        nodeStatus(node, 'green', 'success');
+        node.on('input', function () {
+            dahua.nightProfile();
+            nodeStatus(node, 'green', 'success');
+        });
     }
 
     function nodeStatus(node, color, text) {
