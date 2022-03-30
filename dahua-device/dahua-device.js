@@ -17,8 +17,8 @@ module.exports = function (RED) {
             log: false
         });
 
-        dahua.on('connect', function () {
-            nodeStatus(node, "green", "connected");
+        dahua.on('connect', function (options) {
+            nodeStatus(node, "green", "connected to " + options.host );
         });
 
         dahua.on('error', function (error) {
@@ -42,7 +42,7 @@ module.exports = function (RED) {
     }
 
     function nodeStatus(node, color, text) {
-        var options = { hour12: false, month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit' };
+        var options = { hour12: false, month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' };
         var d = new Date();
         var ds = d.toLocaleDateString("en-US", options);
         node.status({fill: color, shape: "dot", text: text + " at " + ds});
