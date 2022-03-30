@@ -8,7 +8,7 @@ module.exports = function (RED) {
         var device = RED.nodes.getNode(config.device);
 
         node.status({});
-        node.status({fill: 'yellow', shape: 'dot', text: 'connecting...'});
+        nodeStatus(node, 'yellow', 'connecting...');
 
         var dahua = new ipcamera.dahua({
             host: device.ipaddress,
