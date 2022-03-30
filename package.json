@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "moment": "^2.24.0",
-    "node-dahua-api": "github:FrankZZ/node-dahua-api#v1.1.2"
+    "node-dahua-api": "github:FrankZZ/node-dahua-api#feature/fixContext"
   },
   "repository": {
     "type": "git",
