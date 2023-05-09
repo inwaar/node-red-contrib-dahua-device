@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-dahua-device",
-  "version": "0.2.1",
+  "version": "0.0.0-development",
   "description": "A Node-RED integration of Dahua network devices (NVR, IP-Cameras)",
   "author": "Igor Starovierov <igor.decler@gmail.com>",
   "license": "MIT",
@@ -23,5 +23,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/inwaar/node-red-contrib-dahua-device.git"
+  },
+  "devDependencies": {
+    "semantic-release": "^21.0.2"
   }
 }
