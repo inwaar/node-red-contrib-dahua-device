@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-dahua-device",
-  "version": "0.0.2",
+  "version": "0.2.1",
   "description": "A Node-RED integration of Dahua network devices (NVR, IP-Cameras)",
   "author": "Igor Starovierov <igor.decler@gmail.com>",
   "license": "MIT",
@@ -11,12 +11,14 @@
   "node-red": {
     "nodes": {
       "dahua-device": "dahua-device/dahua-device.js",
-      "dahua-device-config": "dahua-device/dahua-device-config.js"
+      "dahua-device-config": "dahua-device/dahua-device-config.js",
+      "dahua-device-night": "dahua-device/dahua-device-night.js",
+      "dahua-device-day": "dahua-device/dahua-device-day.js"
     }
   },
   "dependencies": {
-    "moment": "^2.24.0",
-    "node-dahua-api": "inwaar/node-dahua-api"
+    "moment": "^2.29.1",
+    "node-dahua-api": "github:nayrnet/node-dahua-api#master"
   },
   "repository": {
     "type": "git",

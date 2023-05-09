@@ -1,4 +1,5 @@
 var ipcamera = require('node-dahua-api');
+var nodeStatus = require('./utils').nodeStatus;
 
 module.exports = function (RED) {
     function DahuaDeviceNode(config) {
@@ -7,7 +8,7 @@ module.exports = function (RED) {
         var device = RED.nodes.getNode(config.device);
 
         node.status({});
-        node.status({fill: "yellow", shape: "dot", text: "connecting..."});
+        nodeStatus(node, 'yellow', 'connecting...');
 
         var dahua = new ipcamera.dahua({
             host: device.ipaddress,
@@ -17,27 +18,29 @@ module.exports = function (RED) {
             log: false
         });
 
-        dahua.on('connect', function () {
-            node.status({fill: "green", shape: "dot", text: "connected"});
+        dahua.on('connect', function (options) {
+            nodeStatus(node, 'green', 'connected to ' + options.host );
         });
 
         dahua.on('error', function (error) {
-            node.status({fill: "red", shape: "dot", text: "error: " + error});
+            nodeStatus(node, 'red', 'error: ' + error);
         });
 
         dahua.on('end', function () {
-            node.status({fill: "yellow", shape: "dot", text: "disconnected"});
+            nodeStatus(node, 'yellow', 'disconnected');
         });
 
-        dahua.on('alarm', function (code, action, index) {
+        dahua.on('alarm', function (code, action, index, metadata) {
             node.send({
-                topic: code + '/' + index + '/' + action,
+                topic: [code, index, action].join('/'),
                 payload: action,
+                metadata,
                 index,
                 code
             });
+            nodeStatus(node, 'green', 'processed ' + code + ' event');
         });
     }
 
-    RED.nodes.registerType("dahua-device", DahuaDeviceNode);
+    RED.nodes.registerType('dahua-device', DahuaDeviceNode);
 };
