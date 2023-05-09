@@ -16,15 +16,23 @@
       "dahua-device-day": "dahua-device/dahua-device-day.js"
     }
   },
+  "scripts": {
+    "lint": "eslint ./"
+  },
   "dependencies": {
     "moment": "^2.29.1",
     "node-dahua-api": "github:nayrnet/node-dahua-api#master"
   },
+  "devDependencies": {
+    "eslint": "^8.40.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-jsdoc": "^44.0.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.8",
+    "semantic-release": "^21.0.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/inwaar/node-red-contrib-dahua-device.git"
-  },
-  "devDependencies": {
-    "semantic-release": "^21.0.2"
   }
 }

@@ -2,6 +2,9 @@ var ipcamera = require('node-dahua-api');
 var nodeStatus = require('./utils').nodeStatus;
 
 module.exports = function (RED) {
+    /**
+     * @param config
+     */
     function DahuaDeviceNode(config) {
         RED.nodes.createNode(this, config);
         var node = this;
@@ -15,11 +18,11 @@ module.exports = function (RED) {
             port: device.port,
             user: device.credentials.username,
             pass: device.credentials.password,
-            log: false
+            log: false,
         });
 
         dahua.on('connect', function (options) {
-            nodeStatus(node, 'green', 'connected to ' + options.host );
+            nodeStatus(node, 'green', 'connected to ' + options.host);
         });
 
         dahua.on('error', function (error) {
@@ -36,7 +39,7 @@ module.exports = function (RED) {
                 payload: action,
                 metadata,
                 index,
-                code
+                code,
             });
             nodeStatus(node, 'green', 'processed ' + code + ' event');
         });

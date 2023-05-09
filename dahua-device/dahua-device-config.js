@@ -1,4 +1,7 @@
 module.exports = function (RED) {
+    /**
+     * @param config
+     */
     function DahuaDeviceConfigNode(config) {
         RED.nodes.createNode(this, config);
 
@@ -10,10 +13,10 @@ module.exports = function (RED) {
         }
     }
 
-    RED.nodes.registerType("dahua-device-config", DahuaDeviceConfigNode, {
+    RED.nodes.registerType('dahua-device-config', DahuaDeviceConfigNode, {
         credentials: {
-            username: {type: "text"},
-            password: {type: "password"}
-        }
+            username: { type: 'text' },
+            password: { type: 'password' },
+        },
     });
 };

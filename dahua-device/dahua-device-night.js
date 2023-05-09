@@ -2,13 +2,16 @@ var ipcamera = require('node-dahua-api');
 var nodeStatus = require('./utils').nodeStatus;
 
 module.exports = function (RED) {
+    /**
+     * @param config
+     */
     function DahuaDeviceNightNode(config) {
         RED.nodes.createNode(this, config);
         var node = this;
         var device = RED.nodes.getNode(config.device);
 
         node.status({});
-        
+
         if (!device) {
             nodeStatus(node, 'red', 'error: no config');
         }
