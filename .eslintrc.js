@@ -4,16 +4,22 @@ module.exports = {
         node: true,
         es2021: true,
     },
-    plugins: ['jsdoc', 'prettier'],
+    globals: {
+        RED: true,
+    },
+    plugins: ['jsdoc', 'html', 'prettier'],
     overrides: [
         {
-            files: '*.js',
-            extends: ['plugin:jsdoc/recommended', 'prettier'],
+            files: ['*.js', '*.html'],
+            extends: [
+                'eslint:recommended',
+                'plugin:jsdoc/recommended',
+                'prettier',
+            ],
             rules: {
                 'prettier/prettier': 'error',
                 'jsdoc/require-property-description': 'off',
                 'jsdoc/require-param-type': 'off',
-                'jsdoc/require-param-description': 'off',
                 'jsdoc/require-param-description': 'off',
                 'jsdoc/require-returns-description': 'off',
                 'jsdoc/check-property-names': 'off',
