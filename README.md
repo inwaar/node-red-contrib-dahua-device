@@ -12,6 +12,14 @@ Supports digest authentication for the last Dahua firmware devices.
 Install
 -------
 
+Debian based operation systems:
+
+    sudo apt-get install build-essential git
+
+Other operation systems: follow instructions https://github.com/nodejs/node-gyp#on-unix
+
+### Installation:
+
 Run the following command in your Node-RED user directory - typically `~/.node-red`
 
     npm i node-red-contrib-dahua-device
