@@ -1,5 +1,5 @@
-var ipcamera = require('node-dahua-api');
-var nodeStatus = require('./utils').nodeStatus;
+const ipcamera = require('node-dahua-api');
+const nodeStatus = require('./utils').nodeStatus;
 
 module.exports = function (RED) {
     /**
@@ -7,8 +7,8 @@ module.exports = function (RED) {
      */
     function DahuaDeviceDayNode(config) {
         RED.nodes.createNode(this, config);
-        var node = this;
-        var device = RED.nodes.getNode(config.device);
+        const node = this;
+        const device = RED.nodes.getNode(config.device);
 
         node.status({});
 
@@ -16,7 +16,7 @@ module.exports = function (RED) {
             nodeStatus(node, 'red', 'error: no config');
         }
 
-        var dahua = new ipcamera.dahua({
+        const dahua = new ipcamera.dahua({
             host: device.ipaddress,
             port: device.port,
             user: device.credentials.username,

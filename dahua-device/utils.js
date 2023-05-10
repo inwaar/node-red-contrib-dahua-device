@@ -1,6 +1,6 @@
 module.exports = {
     nodeStatus: function (node, color, text) {
-        var options = {
+        const options = {
             hour12: false,
             month: 'short',
             day: '2-digit',
@@ -8,8 +8,8 @@ module.exports = {
             minute: '2-digit',
             second: '2-digit',
         };
-        var d = new Date();
-        var ds = d.toLocaleDateString('en-US', options);
+        const d = new Date();
+        const ds = d.toLocaleDateString('en-US', options);
 
         node.status({ fill: color, shape: 'dot', text: text + ' at ' + ds });
     },

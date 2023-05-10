@@ -18,6 +18,8 @@ module.exports = {
             ],
             rules: {
                 'prettier/prettier': 'error',
+                'prefer-const': 'error',
+                'no-var': 'error',
                 'jsdoc/require-property-description': 'off',
                 'jsdoc/require-param-type': 'off',
                 'jsdoc/require-param-description': 'off',
