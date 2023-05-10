@@ -12,17 +12,27 @@ Additionally it provides nodes to set Day or Night profile.
 
 Supports digest authentication for the last Dahua firmware devices.
 
-
-Install
+Pre-requirements
 -------
 
-Debian based operation systems:
+<details><summary>Debian based operation systems</summary>
 
     sudo apt-get install build-essential git
 
-Other operation systems: follow instructions https://github.com/nodejs/node-gyp#on-unix
+</details>
+<details><summary>Hass.io</summary>
 
-### Installation:
+https://github.com/inwaar/node-red-contrib-dahua-device/issues/4#issuecomment-602093620
+
+</details>
+<details><summary>Other operation systems</summary>
+
+follow instructions https://github.com/nodejs/node-gyp#on-unix
+
+</details>
+
+Install
+-------
 
 Run the following command in your Node-RED user directory - typically `~/.node-red`
 
