@@ -25,6 +25,9 @@
     "moment": "^2.30.1",
     "node-dahua-api": "github:nayrnet/node-dahua-api#master"
   },
+  "overrides": {
+    "net-keepalive": "4.0.1"
+  },
   "devDependencies": {
     "eslint": "^8.40.0",
     "eslint-config-prettier": "^8.8.0",
